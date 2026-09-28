@@ -20,10 +20,11 @@ class Student:
         self.__marks.append(mark)
 
     def calculate_result(self, *additional_bonus_marks):
-        if not self.__marks:
+        if not self.__marks and not additional_bonus_marks:
             return 0.0
         
         total = sum(self.__marks) + sum(additional_bonus_marks)
+        total_subjects = len(self.marks) + len(additional_bonus_marks)
         average = total / len(self.__marks)
         return round(average, 2)
 
